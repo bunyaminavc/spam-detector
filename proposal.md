@@ -7,70 +7,56 @@
 
 ## Hedef
 
-<!-- Kendi cümlelerinle yaz:
-     - Ne yapıyorsun? (e-posta metni alıp spam/normal sınıflandırıyorsun)
-     - Neden önemli? (spam maillerin güvenlik tehdidi, kimlik avı, dolandırıcılık)
-     - Nasıl sunulacak? (Streamlit web arayüzü ile gerçek zamanlı)
--->
+Bu projede amacım spam ve normal olan mailleri sınıflandırmak. Modeller eldeki veri setiyle eğitildi. Python ile yazıldı, kullanıcı webde metin girip sonuç görebiliyor.
 
 ---
 
 ## Veri Seti
 
-<!-- Kendi cümlelerinle yaz:
-     - SMS Spam Collection Dataset (Kaggle, UCI ML Repository)
-     - ~5.574 mesaj: 4.827 normal (ham), 747 spam
-     - Tek CSV: spam.csv — v1 (etiket: ham/spam), v2 (mesaj metni)
-     - Etiketleme: 0 = Normal (ham), 1 = Spam
-     - Veri kaynağı: https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset
--->
+Veri seti için Kaggle'den https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset bağlantısındaki veri setinden faydalandım. Toplamda 5572 mesaj içeriği var. 747'si spam. Etiket olarak ham=0, spam=1 olarak etiketlendi.
 
 ---
 
-## Ön İşleme ve Vektörizasyon
+## Yöntem Bölümü
 
-<!-- Kendi cümlelerinle yaz:
-     - Küçük harfe çevirme, URL/sayı/noktalama kaldırma, stopword temizleme
-     - TF-IDF ile sayısal vektöre dönüştürme (unigram + bigram, max 10.000 özellik)
-     - Neden TF-IDF? → kelime sıklığı + nadirlik dengesini yakalar, spam için etkili
--->
+Metinler önce belli başlı ön işleme adımlarından geçiyor, bunlar; küçük harfe çevirme, noktalamaları temizleme ve cümlede anlam taşımayan ifadeler yani stopwords (the, is, a, and vb.) kaldırma.
+
+TF-IDF ile metinler sayıya dönüştürüldü ve bilgisayarın anlayacağı hale getirildi, bu sayede hızlandı. Unigram ve bigram ile "free, won, you won, click here" gibi spam olabilecek mesajlar değerlendirilir.
 
 ---
 
 ## Metodoloji
 
-<!-- Kendi cümlelerinle yaz:
-     - Sınıflandırıcı: Logistic Regression
-     - Neden? → yorumlanabilir, hızlı, TF-IDF ile iyi çalışır
-     - Değerlendirme metrikleri: Accuracy, Precision, Recall, F1-Score
-     - Train/test split: %80 / %20, stratify=True
--->
+Logistic Regression kullandım çünkü kolay, TF-IDF ile de uyumlu, bu sayede hızlı. Veriyi %80 eğitim ve %20 test olarak böldüm. Değerlendirme için kullandığım metrikler ise bunlar: Accuracy, Precision, Recall, F1-Score.
 
 ---
 
 ## Beklenen Sonuç
 
-<!-- Kendi cümlelerinle yaz:
-     - TF-IDF + LR bu veri setinde ~%98 accuracy bekleniyor
-     - Kullanıcı e-posta metnini yapıştırıp anında sonuç alabilecek
-     - Güven skoru ile birlikte spam/normal tahmini gösterilecek
--->
+Accuracy : %98.03
 
----
+Precision : %93.79
 
-## Teknoloji Yığını
+Recall : %91.28
 
-| Katman             | Araç / Kütüphane       |
-|--------------------|------------------------|
-| Programlama dili   | Python 3.10+           |
-| NLP / ML           | scikit-learn, NLTK     |
-| Arayüz             | Streamlit              |
-| Versiyon kontrolü  | Git / GitHub           |
+F1-Score : %92.52
 
 ---
 
 ## Referanslar
 
 - Almeida, T.A. et al. (2011). *Contributions to the Study of SMS Spam Filtering.*
-- Kaggle – SMS Spam Collection: https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset
+- Kaggle – SMS Spam Collection Dataset: https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset
 - scikit-learn Documentation: https://scikit-learn.org
+
+---
+
+## Vibe Coding İçin Kullandığım AI
+
+Claude
+
+---
+
+## Github
+
+https://github.com/bunyaminavc/spam-detector
