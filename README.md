@@ -37,7 +37,27 @@ F1-Score : %92.52
 ---
 
 ## Kurulum ve Kullanım, Proje Yapısı
-Geliştirme aşamasında...
+Githubdan yükleyip çalıştırmak için
+git clone https://github.com/bunyaminavc/spam-detector.git
+cd spam detector
+
+Sanal ortam oluşturmak için(zorunlu değil)
+python -m venv venv
+#eğer macte hata alırsanız python yerine python3 yazın
+soruce venv/bin/activate #bu mac içindi windos için venv/Scripts/activate
+
+yüklemek için
+
+pip install -r requirements.txt
+
+Modeli eğitmek için
+
+python train.py
+
+web arayüzünü başlatmak için
+
+streamlit run app.py (localhostta çalışması lazım)
+
 
 ---
 
