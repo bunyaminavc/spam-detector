@@ -39,7 +39,7 @@ F1-Score : %92.52
 ## Kurulum ve Kullanım, Proje Yapısı
 Githubdan yükleyip çalıştırmak için
 git clone https://github.com/bunyaminavc/spam-detector.git
-cd spam detector
+cd spam-detector
 
 Sanal ortam oluşturmak için(zorunlu değil)
 python -m venv venv
