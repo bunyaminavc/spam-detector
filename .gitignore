@@ -1,8 +1,8 @@
 __pycache__/
 *.pyc
 *.pyo
-model/*.pkl
-data/
+# model/*.pkl
+# data/
 .env
 .DS_Store
 venv/
