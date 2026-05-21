@@ -71,7 +71,7 @@ streamlit run app.py (localhostta çalışması lazım)
 
 ---
 
-## Referanslar
+## Kaynaklar
 
 - Almeida, T.A. et al. (2011). *Contributions to the Study of SMS Spam Filtering.*
 - Kaggle – SMS Spam Collection Dataset: https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset
